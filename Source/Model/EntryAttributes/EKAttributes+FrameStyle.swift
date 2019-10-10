@@ -56,6 +56,7 @@ public extension EKAttributes {
         case none
         
         /** Border wirh color and width */
+        ///自定义
         case value(color: UIColor, width: CGFloat)
         
         var hasBorder: Bool {

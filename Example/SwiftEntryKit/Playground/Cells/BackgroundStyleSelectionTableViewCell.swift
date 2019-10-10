@@ -10,7 +10,7 @@ import UIKit
 import SwiftEntryKit
 
 final class BackgroundStyleSelectionTableViewCell: SelectionTableViewCell {
-    
+    ///公用一个cell
     private var focus: Focus = .entry
     
     private var backgroundStyle: EKAttributes.BackgroundStyle {

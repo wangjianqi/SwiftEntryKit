@@ -20,15 +20,19 @@ public extension EKAttributes {
         public enum Default {
             
             /** Absorbs touches. The entry / screen does nothing (Swallows the touch) */
+            ///不做操作
             case absorbTouches
             
             /** Touches delay the exit of the entry */
+            ///延迟
             case delayExit(by: TimeInterval)
             
             /** Taps dismiss the entry immediately */
+            ///立刻消失
             case dismissEntry
             
             /** Touches are forwarded to the lower window (In most cases it would be the application main window that will handle it */
+            ///触摸被转发到下面的窗口(在大多数情况下，将由应用程序主窗口处理它)
             case forward
         }
         

@@ -13,6 +13,7 @@ protocol EntryPresenterDelegate: class {
     func displayPendingEntryIfNeeded()
 }
 
+///RootViewController
 class EKRootViewController: UIViewController {
     
     // MARK: - Props

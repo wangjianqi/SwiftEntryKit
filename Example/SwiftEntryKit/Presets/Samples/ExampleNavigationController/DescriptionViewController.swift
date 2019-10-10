@@ -28,7 +28,7 @@ class DescriptionViewController: UIViewController {
         navigationItem.title = screenTitle
         setupInterfaceStyle()
     }
-    
+    //环境变化
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setupInterfaceStyle()
     }

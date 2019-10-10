@@ -9,6 +9,7 @@
 import UIKit
 
 /** A color representation attribute as per user interface style */
+///可以比较
 public struct EKColor: Equatable {
     
     // MARK: - Properties
@@ -56,6 +57,7 @@ public struct EKColor: Equatable {
                     return light
                 case .dark:
                     return dark
+                    ///未知的
                 @unknown default:
                     return light
                 }
@@ -84,6 +86,7 @@ public extension EKColor {
     }
     
     /** White color for all user interface styles */
+    ///定义颜色
     static var white: EKColor {
         return EKColor(.white)
     }

@@ -37,6 +37,7 @@ class PresetsViewController: UIViewController {
     
     private var dataSource = PresetsDataSource()
     private let tableView = UITableView()
+    ///segmented
     @IBOutlet private var displayModeSegmentedControl: UISegmentedControl!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -767,6 +768,7 @@ class PresetsViewController: UIViewController {
     }
     
     // Bumps a navigation controller
+    //导航控制器
     private func showNavigationController(with attributes: EKAttributes) {
         let viewController = ContactsViewController()
         let navigationController = ExampleNavigationViewController(rootViewController: viewController)
@@ -774,11 +776,13 @@ class PresetsViewController: UIViewController {
     }
     
     // Bumps a custom nib originated view
+    ///nib文件
     private func showCustomNibView(attributes: EKAttributes) {
         SwiftEntryKit.display(entry: NibExampleView(), using: attributes)
     }
     
     // Bumps a custom view controller that is using a view from nib
+    ///控制器
     private func showCustomViewController(attributes: EKAttributes) {
         let viewController = ExampleViewController(with: NibExampleView())
         SwiftEntryKit.display(entry: viewController, using: attributes)

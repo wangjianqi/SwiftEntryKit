@@ -51,6 +51,7 @@ final class PlaygroundViewController: UIViewController {
     private let tableView = UITableView()
         
     private lazy var attributesWrapper: EntryAttributeWrapper = {
+        ///属性
         var attributes = EKAttributes()
         attributes.positionConstraints = .fullWidth
         attributes.hapticFeedbackType = .success
@@ -84,10 +85,13 @@ final class PlaygroundViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
+        ///行高
         tableView.estimatedRowHeight = UITableView.automaticDimension
+        ///section高度
         tableView.estimatedSectionHeaderHeight = UITableView.automaticDimension
         tableView.register(Cells.header,
                            forHeaderFooterViewReuseIdentifier: Cells.header.className)
+        //批量注册
         Cells.cells.forEach { cells in
             cells.forEach {
                 tableView.register($0, forCellReuseIdentifier: $0.className)
@@ -144,6 +148,7 @@ extension PlaygroundViewController: UITableViewDelegate, UITableViewDataSource {
                              and: indexPath)
         
         switch (indexPath.section, indexPath.row) {
+            ///display
         case (0, 0...3):
             cell.configure(attributesWrapper: attributesWrapper)
         case (1, 0...2):
@@ -197,11 +202,13 @@ extension PlaygroundViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     // iOS 9, 10 support
+    ///预估行高
     func tableView(_ tableView: UITableView,
                    estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
+
+    ///预估Header高度
     func tableView(_ tableView: UITableView,
                    estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 50

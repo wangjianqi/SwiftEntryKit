@@ -9,12 +9,13 @@
 import UIKit
 import SwiftEntryKit
 
+///baseCell
 class SelectionBaseCell: UITableViewCell {
     func configure(attributesWrapper: EntryAttributeWrapper) {}
 }
 
 class SelectionTableViewCell: SelectionBaseCell {
-
+    ///定义类型
     enum Focus: String {
         case entry
         case screen
@@ -27,6 +28,7 @@ class SelectionTableViewCell: SelectionBaseCell {
     
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
+    ///外部使用
     let segmentedControl = UISegmentedControl()
     
     var attributesWrapper: EntryAttributeWrapper!
@@ -34,7 +36,7 @@ class SelectionTableViewCell: SelectionBaseCell {
     var attributes: EKAttributes {
         return attributesWrapper.attributes
     }
-    
+    ///设置title
     var titleValue: String {
         set {
             titleLabel.text = newValue
@@ -43,7 +45,7 @@ class SelectionTableViewCell: SelectionBaseCell {
             return titleLabel.text ?? ""
         }
     }
-    
+    ///设置description
     var descriptionValue: String {
         set {
             descriptionLabel.text = newValue
@@ -76,6 +78,7 @@ class SelectionTableViewCell: SelectionBaseCell {
     private func setupDescriptionLabel() {
         contentView.addSubview(descriptionLabel)
         descriptionLabel.font = MainFont.light.with(size: 15)
+        ///行
         descriptionLabel.numberOfLines = 0
         descriptionLabel.layout(.top, to: .bottom, of: titleLabel, offset: 10)
         descriptionLabel.layoutToSuperview(axis: .horizontally, offset: 20)
@@ -84,10 +87,12 @@ class SelectionTableViewCell: SelectionBaseCell {
     
     private func setupSegmentedControl() {
         contentView.addSubview(segmentedControl)
+        ///正常字体
         segmentedControl.setTitleTextAttributes(
             [NSAttributedString.Key.font: MainFont.light.with(size: 15)],
             for: .normal
         )
+        ///选中字体
         segmentedControl.setTitleTextAttributes(
             [NSAttributedString.Key.font: MainFont.medium.with(size: 15)],
             for: .selected
@@ -103,19 +108,23 @@ class SelectionTableViewCell: SelectionBaseCell {
     }
     
     override func configure(attributesWrapper: EntryAttributeWrapper) {
+        ///移除
         segmentedControl.removeAllSegments()
         self.attributesWrapper = attributesWrapper
     }
     
     func insertSegments(by array: [String]) {
         for (index, info) in array.enumerated() {
+            ///添加
             segmentedControl.insertSegment(withTitle: info, at: index, animated: false)
         }
     }
-    
+
+    ///action
     @objc func segmentChanged() {}
     
     private func setupInterfaceStyle() {
+        ///设置背景色
         contentView.backgroundColor = EKColor.standardBackground.color(
             for: traitCollection,
             mode: PresetsDataSource.displayMode

@@ -199,6 +199,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
     }
     
     /** Privately using to prepare the root view controller and show the entry immediately */
+    //显示
     private func show(entryView: EKEntryView, presentInsideKeyWindow: Bool, rollbackWindow: SwiftEntryKit.RollbackWindow) {
         guard let entryVC = prepare(for: entryView.attributes, presentInsideKeyWindow: presentInsideKeyWindow) else {
             return

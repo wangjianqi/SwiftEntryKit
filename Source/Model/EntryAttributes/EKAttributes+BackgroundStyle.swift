@@ -11,6 +11,7 @@ import UIKit
 public extension EKAttributes {
     
     /** The background style property */
+    ///背景样式
     enum BackgroundStyle: Equatable {
         
         /** Blur style for light and dark modes */

@@ -18,6 +18,7 @@ public extension EKAttributes {
         case none
         
         /** Shadow with value */
+        ///自定义
         case active(with: Value)
         
         /** The shadow properties */

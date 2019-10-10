@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-
+    //从nib加载
     @discardableResult
     func fromNib<T : UIView>() -> T? {
         guard let contentView = Bundle(for: type(of: self)).loadNibNamed(type(of: self).className, owner: self, options: nil)?.first as? T else {

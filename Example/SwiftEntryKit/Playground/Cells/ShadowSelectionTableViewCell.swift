@@ -32,6 +32,7 @@ final class ShadowSelectionTableViewCell: SelectionTableViewCell {
         case 0:
             attributesWrapper.attributes.shadow = .none
         case 1:
+            ///设置阴影
             let value = EKAttributes.Shadow.Value(color: .black, opacity: 0.5, radius: 10, offset: .zero)
             attributesWrapper.attributes.shadow = .active(with: value)
         default:

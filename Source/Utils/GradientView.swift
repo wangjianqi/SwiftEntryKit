@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+///渐变色
 class GradientView: UIView {
     
     struct Style {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+///字体
 typealias MainFont = Font.HelveticaNeue
 
 enum Font {
@@ -27,6 +27,7 @@ enum Font {
         case boldItalic = "BoldItalic"
         
         func with(size: CGFloat) -> UIFont {
+            ///字体库
             return UIFont(name: "HelveticaNeue-\(rawValue)", size: size)!
         }
     }
