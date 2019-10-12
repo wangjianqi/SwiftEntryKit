@@ -120,15 +120,17 @@ class EKRootViewController: UIViewController {
     }
     
     // Set status bar
+    ///设置状态栏
     func setStatusBarStyle(for attributes: EKAttributes) {
         statusBar = attributes.statusBar
     }
     
     // MARK: - Setup
-    
+    ///配置View
     func configure(entryView: EKEntryView) {
 
         // In case the entry is a view controller, add the entry as child of root
+        ///如果有控制器
         if let viewController = entryView.content.viewController {
             addChild(viewController)
         }
@@ -145,6 +147,7 @@ class EKRootViewController: UIViewController {
         lastAttributes = attributes
         
         let entryContentView = EKContentView(withEntryDelegate: self)
+        ///添加到View上
         view.addSubview(entryContentView)
         entryContentView.setup(with: entryView)
         
@@ -156,10 +159,12 @@ class EKRootViewController: UIViewController {
         }
 
         if previousAttributes?.statusBar != attributes.statusBar {
+            ///更新状态栏
             setNeedsStatusBarAppearanceUpdate()
         }
         
         if shouldAutorotate {
+            ///旋转屏幕
             UIViewController.attemptRotationToDeviceOrientation()
         }
     }
@@ -173,6 +178,7 @@ class EKRootViewController: UIViewController {
     }
 
     // Removes last entry - can keep the window 'ON' if necessary
+    ///移除上个实体
     private func removeLastEntry(lastAttributes: EKAttributes?, keepWindow: Bool) {
         guard let attributes = lastAttributes else {
             return
@@ -185,6 +191,7 @@ class EKRootViewController: UIViewController {
     }
     
     // Make last entry exit using exitAnimation - animatedly
+    //
     func animateOutLastEntry(completionHandler: SwiftEntryKit.DismissCompletionHandler? = nil) {
         lastEntry?.dismissHandler = completionHandler
         lastEntry?.animateOut(pushOut: false)
@@ -212,7 +219,7 @@ extension EKRootViewController {
 }
 
 // MARK: - EntryScrollViewDelegate
-
+//实现协议方法
 extension EKRootViewController: EntryContentViewDelegate {
     
     func didFinishDisplaying(entry: EKEntryView, keepWindowActive: Bool) {
@@ -231,7 +238,7 @@ extension EKRootViewController: EntryContentViewDelegate {
         guard displayingEntryCount <= 1 else {
             return
         }
-        
+        ///block
         let clear = {
             let style = EKBackgroundView.Style(background: .clear, displayMode: attributes.displayMode)
             self.changeBackground(to: style, duration: attributes.exitAnimation.totalDuration)

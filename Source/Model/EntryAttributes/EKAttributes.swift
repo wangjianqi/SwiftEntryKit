@@ -17,6 +17,7 @@ public struct EKAttributes {
      A settable **optional** name that matches the entry-attributes.
      - Nameless entries cannot be inquired using *SwiftEntryKit.isCurrentlyDisplaying(entryNamed: _) -> Bool*
      */
+    ///标识
     public var name: String?
     
     // MARK: Display Attributes
@@ -63,6 +64,7 @@ public struct EKAttributes {
     public var hapticFeedbackType = NotificationHapticFeedback.none
     
     /** Describes the actions that take place when the entry appears or is being dismissed */
+    ///生命周期
     public var lifecycleEvents = LifecycleEvents()
     
     // MARK: Theme & Style Attributes
@@ -96,12 +98,15 @@ public struct EKAttributes {
     // MARK: Animation Attributes
     
     /** Describes how the entry animates in */
+    ///进入动画
     public var entranceAnimation = Animation.translation
     
     /** Describes how the entry animates out */
+    ///退出动画
     public var exitAnimation = Animation.translation
     
     /** Describes the previous entry behaviour when a new entry with higher display-priority shows */
+    ///默认pop动画
     public var popBehavior = PopBehavior.animated(animation: .translation)
 
     /** Init with default attributes */

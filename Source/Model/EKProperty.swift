@@ -67,6 +67,7 @@ public struct EKProperty {
     }
     
     /** Label content descriptor */
+    ///标题
     public struct LabelContent {
         
         /** The text */
@@ -88,12 +89,14 @@ public struct EKProperty {
     }
     
     /** Label style descriptor */
+    ///字体样式
     public struct LabelStyle {
         
         /** Font of the text */
         public var font: UIFont
         
         /** Color of the text */
+        ///颜色
         public var color: EKColor
         
         /** Text Alignment */
@@ -123,6 +126,7 @@ public struct EKProperty {
     }
     
     /** Image View style descriptor */
+    ///图片
     public struct ImageContent {
         
         /** Repeated-reversed animation throughout the presentation of an image */
@@ -158,7 +162,8 @@ public struct EKProperty {
         
         /** Image accessibility identifier */
         public var accessibilityIdentifier: String?
-        
+
+        ///构造方法
         public init(imageName: String,
                     animation: TransformAnimation = .none,
                     displayMode: EKAttributes.DisplayMode = .inferred,
@@ -168,6 +173,7 @@ public struct EKProperty {
                     makesRound: Bool = false,
                     accessibilityIdentifier: String? = nil) {
             let image = UIImage(named: imageName)!
+            ///调用其他构造方法
             self.init(image: image,
                       displayMode: displayMode,
                       size: size,

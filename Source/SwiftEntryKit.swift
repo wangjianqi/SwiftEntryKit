@@ -13,6 +13,7 @@ import UIKit
 public final class SwiftEntryKit {
     
     /** Describes the a single or multiple entries for possible dismissal states */
+    ///隐藏
     public enum EntryDismissalDescriptor {
         
         /** Describes specific entry / entries with name */
@@ -32,6 +33,7 @@ public final class SwiftEntryKit {
     }
     
     /** The window to rollback to after dismissal */
+    ///窗口
     public enum RollbackWindow {
         
         /** The main window */
@@ -42,6 +44,7 @@ public final class SwiftEntryKit {
     }
     
     /** Completion handler for the dismissal method */
+    ///消失回调
     public typealias DismissCompletionHandler = () -> Void
     
     /** Cannot be instantiated, customized, inherited. */
@@ -95,7 +98,9 @@ public final class SwiftEntryKit {
      - parameter presentInsideKeyWindow: Indicates whether the entry window should become the key window.
      - parameter rollbackWindow: After the entry has been dismissed, SwiftEntryKit rolls back to the given window. By default it is *.main* which is the app main window
      */
+    ///展示
     public class func display(entry view: UIView, using attributes: EKAttributes, presentInsideKeyWindow: Bool = false, rollbackWindow: RollbackWindow = .main) {
+        ///主线程弹框
         DispatchQueue.main.async {
             EKWindowProvider.shared.display(view: view, using: attributes, presentInsideKeyWindow: presentInsideKeyWindow, rollbackWindow: rollbackWindow)
         }
@@ -149,6 +154,7 @@ public final class SwiftEntryKit {
      - A thread-safe method - Can be invoked from any thread.
      - A class method - Should be called on the class.
      */
+    ///在主线程中更新
     public class func layoutIfNeeded() {
         if Thread.isMainThread {
             EKWindowProvider.shared.layoutIfNeeded()

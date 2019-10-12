@@ -10,7 +10,8 @@ import UIKit
 import QuickLayout
 
 class EKEntryView: EKStyleView {
-    
+
+    ///弹框内容
     struct Content {
         var viewController: UIViewController!
         var view: UIView!
@@ -21,7 +22,7 @@ class EKEntryView: EKStyleView {
             self.view = viewController.view
             self.attributes = attributes
         }
-        
+        ///构造方法
         init(view: UIView, attributes: EKAttributes) {
             self.view = view
             self.attributes = attributes
@@ -39,7 +40,8 @@ class EKEntryView: EKStyleView {
     private lazy var contentView: UIView = {
         return UIView()
     }()
-    
+
+    ///属性
     var attributes: EKAttributes {
         return content.attributes
     }
@@ -54,6 +56,7 @@ class EKEntryView: EKStyleView {
     }()
 
     // MARK: Setup
+    ///构造方法
     init(newEntry content: Content) {
         self.content = content
         super.init(frame: UIScreen.main.bounds)

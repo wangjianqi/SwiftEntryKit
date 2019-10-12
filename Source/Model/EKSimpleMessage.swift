@@ -11,6 +11,7 @@ import Foundation
 public struct EKSimpleMessage {
     
     /** The image view descriptor */
+    ///可选值
     public let image: EKProperty.ImageContent?
     
     /** The title label descriptor */

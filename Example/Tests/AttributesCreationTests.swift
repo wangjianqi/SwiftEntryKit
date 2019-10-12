@@ -10,14 +10,17 @@ import Quick
 import Nimble
 @testable import SwiftEntryKit
 
+///单元测试
 class AttributesCreation: QuickSpec {
 
     override func spec() {
         describe("attributes creation") {
+            ///测试方法
             testDisplayDuration()
             testWindowLevel()
             testPosition()
             testDisplayPriority()
+            testTest()
         }
     }
     
@@ -31,6 +34,7 @@ class AttributesCreation: QuickSpec {
             
             it("is initialized with max display priority") {
                 attributes.precedence.priority = .max
+                ///期待结果
                 expect(attributes.precedence.priority).to(equal(.max))
                 expect(attributes.precedence.priority.rawValue).to(equal(EKAttributes.Precedence.Priority.maxRawValue))
             }
@@ -128,6 +132,16 @@ class AttributesCreation: QuickSpec {
                 expect(attributes.displayDuration).to(equal(duration))
                 expect(attributes.validateDisplayDuration).to(beTrue())
                 expect(attributes.isValid).to(beTrue())
+            }
+        }
+    }
+
+    ///测试
+    private func testTest() {
+        describe("测试") {
+            it("打印测试") {
+                let logs = "Quick"
+                expect(logs).to(equal("Quick"))
             }
         }
     }

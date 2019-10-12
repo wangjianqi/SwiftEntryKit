@@ -73,7 +73,8 @@ class EKContentView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    ///设置代理
     init(withEntryDelegate entryDelegate: EntryContentViewDelegate) {
         self.entryDelegate = entryDelegate
         super.init(frame: .zero)
@@ -109,6 +110,7 @@ class EKContentView: UIView {
     }
     
     // Setup the scrollView initial position
+    ///布局
     private func setupInitialPosition() {
         
         // Determine the layout entrance type according to the entry type
@@ -282,6 +284,7 @@ class EKContentView: UIView {
     }
 
     // Setup general attributes
+    ///添加手势
     private func setupAttributes() {
         clipsToBounds = false
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized(gr:)))
@@ -290,6 +293,7 @@ class EKContentView: UIView {
     }
     
     // Setup tap gesture
+    ///设置点击手势
     private func setupTapGestureRecognizer() {
         switch attributes.entryInteraction.defaultAction {
         case .forward:
@@ -376,6 +380,7 @@ class EKContentView: UIView {
     }
     
     // Animate in
+    ///设置动画
     private func animateIn() {
                 
         let animation = attributes.entranceAnimation
@@ -459,9 +464,11 @@ class EKContentView: UIView {
     // MARK: Remvoe entry
     
     // Removes the view promptly - DOES NOT animate out
+    ///迅速删除
     func removePromptly(keepWindow: Bool = true) {
         outDispatchWorkItem?.cancel()
         entryDelegate?.changeToInactive(withAttributes: attributes, pushOut: false)
+        ///将要消失
         contentView.content.attributes.lifecycleEvents.willDisappear?()
         removeFromSuperview(keepWindow: keepWindow)
     }
@@ -527,7 +534,8 @@ extension EKContentView {
             return end.maxY - end.minY
         }
     }
-    
+
+    ///监听键盘
     private func setupKeyboardChangeIfNeeded() {
         guard attributes.positionConstraints.keyboardRelation.isBound else {
             return

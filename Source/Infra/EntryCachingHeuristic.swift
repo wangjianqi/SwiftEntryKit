@@ -65,7 +65,7 @@ extension EntryCachingHeuristic {
         }
         entries.remove(at: index)
     }
-    
+    ///删除所有
     func removeAll() {
         entries.removeAll()
     }
@@ -80,8 +80,9 @@ class EKEntryChronologicalQueue: EntryCachingHeuristic {
     }
 }
 
+///优先级队列
 class EKEntryPriorityQueue: EntryCachingHeuristic {
-    
+    ///条目
     var entries: [CachedEntry] = []
     
     func enqueue(entry: CachedEntry) {

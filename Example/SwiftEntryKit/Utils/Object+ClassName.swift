@@ -8,6 +8,7 @@
 
 import Foundation
 
+//类名
 extension NSObject {
     var className: String {
         return String(describing: type(of: self))

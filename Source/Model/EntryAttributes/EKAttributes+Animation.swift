@@ -24,6 +24,7 @@ protocol EKRangeAnimation: EKAnimation {
 public extension EKAttributes {
     
     /** Describes an animation that can be performed on the entry */
+    ///动画
     struct Animation {
     
         /** Describes properties for a spring animation that can be performed on the entry */
@@ -43,6 +44,7 @@ public extension EKAttributes {
         }
 
         /** Describes an animation with range */
+        ///协议
         public struct RangeAnimation: EKRangeAnimation {
             
             /** The duration of the range animation */
@@ -71,6 +73,7 @@ public extension EKAttributes {
         }
         
         /** Describes translation animation */
+        ///转化
         public struct Translate: EKAnimation {
             
             /** Describes the anchor position */
@@ -99,6 +102,7 @@ public extension EKAttributes {
             public var spring: Spring?
 
             /** Initializer */
+            ///初始化方法
             public init(duration: TimeInterval, anchorPosition: AnchorPosition = .automatic, delay: TimeInterval = 0, spring: Spring? = nil) {
                 self.anchorPosition = anchorPosition
                 self.duration = duration
@@ -152,6 +156,7 @@ public extension EKAttributes {
         }
         
         /** Returns the maximum (duration+delay) amongst all animations */
+        ///转化动画
         public static var translation: Animation {
             return Animation(translate: .init(duration: 0.3))
         }
@@ -162,6 +167,7 @@ public extension EKAttributes {
         }
         
         /** Initializer */
+        ///初始化方法
         public init(translate: Translate? = nil, scale: RangeAnimation? = nil, fade: RangeAnimation? = nil) {
             self.translate = translate
             self.scale = scale

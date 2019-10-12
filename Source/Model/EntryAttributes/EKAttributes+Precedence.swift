@@ -19,6 +19,7 @@ public extension EKAttributes {
      Describes the manner on which the entry is pushed and displayed.
      See the various values of more explanation.
      */
+    ///优先级
     enum Precedence {
         
         /**
@@ -54,6 +55,7 @@ public extension EKAttributes {
         /**
          Describes the queueing heoristic of entries.
          */
+        ///队列
         public enum QueueingHeuristic {
             
             /** Determines the heuristic which the entry-queue is based on */
@@ -81,6 +83,7 @@ public extension EKAttributes {
          - In case no previous entry is currently presented, display the new entry.
          - In case there is an entry that is currently presented - override it using the new entry. Also optionally drop all previously enqueued entries.
          */
+        ///
         case override(priority: Priority, dropEnqueuedEntries: Bool)
         
         /**
@@ -88,6 +91,7 @@ public extension EKAttributes {
          - In case no previous entry is currently presented, display the new entry.
          - In case there is an entry that is currently presented - enqueue the new entry, an present it just after the previous one is dismissed.
          */
+        ///可用队列
         case enqueue(priority: Priority)
         
         var isEnqueue: Bool {

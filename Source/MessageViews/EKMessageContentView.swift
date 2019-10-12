@@ -15,7 +15,7 @@ public class EKMessageContentView: UIView {
     
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
-    
+    ///约束
     private var horizontalConstraints: QLAxisConstraints!
     private var topConstraint: NSLayoutConstraint!
     private var bottomConstraint: NSLayoutConstraint!
@@ -61,6 +61,7 @@ public class EKMessageContentView: UIView {
         didSet {
             topConstraint.constant = verticalMargins
             bottomConstraint.constant = -verticalMargins
+            ///布局
             layoutIfNeeded()
         }
     }
@@ -95,6 +96,7 @@ public class EKMessageContentView: UIView {
     
     private func setupTitleLabel() {
         addSubview(titleLabel)
+        ///添加约束
         topConstraint = titleLabel.layoutToSuperview(.top, offset: verticalMargins)
         horizontalConstraints = titleLabel.layoutToSuperview(axis: .horizontally, offset: horizontalMargins)
         titleLabel.forceContentWrap(.vertically)

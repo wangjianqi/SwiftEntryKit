@@ -27,6 +27,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
     var entryWindow: EKWindow!
     
     /** Returns the root view controller if it is instantiated */
+    ///根控制器
     var rootVC: EKRootViewController? {
         return entryWindow?.rootViewController as? EKRootViewController
     }
@@ -72,6 +73,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
     }
     
     /** Boilerplate generic setup for entry-window and root-view-controller  */
+    ///设置根视图
     private func setupWindowAndRootVC() -> EKRootViewController {
         let entryVC: EKRootViewController
         if entryWindow == nil {
@@ -86,6 +88,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
     /**
      Privately used to display an entry
      */
+    ///需要传入一个实体View
     private func display(entryView: EKEntryView, using attributes: EKAttributes, presentInsideKeyWindow: Bool, rollbackWindow: SwiftEntryKit.RollbackWindow) {
         switch entryView.attributes.precedence {
         case .override(priority: _, dropEnqueuedEntries: let dropEnqueuedEntries):
@@ -134,6 +137,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
     }
     
     /** Display a view using attributes */
+    ///展示
     func display(view: UIView, using attributes: EKAttributes, presentInsideKeyWindow: Bool, rollbackWindow: SwiftEntryKit.RollbackWindow) {
         let entryView = EKEntryView(newEntry: .init(view: view, attributes: attributes))
         display(entryView: entryView, using: attributes, presentInsideKeyWindow: presentInsideKeyWindow, rollbackWindow: rollbackWindow)
@@ -167,6 +171,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
     }
     
     /** Dismiss entries according to a given descriptor */
+    ///隐藏
     func dismiss(_ descriptor: SwiftEntryKit.EntryDismissalDescriptor, with completion: SwiftEntryKit.DismissCompletionHandler? = nil) {
         guard let rootVC = rootVC else {
             return
@@ -194,6 +199,7 @@ final class EKWindowProvider: EntryPresenterDelegate {
     }
     
     /** Layout the view-hierarchy rooted in the window */
+    ///更新
     func layoutIfNeeded() {
         entryWindow?.layoutIfNeeded()
     }

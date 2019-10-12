@@ -37,7 +37,8 @@ final public class EKNotificationMessageView: EKSimpleMessageView {
         auxLabel.content = content
         addSubview(auxLabel)
     }
-    
+
+    ///布局
     private func layoutContent(with insets: EKNotificationMessage.Insets) {
         messageContentView.verticalMargins = 0
         messageContentView.horizontalMargins = 0

@@ -17,7 +17,7 @@ public extension EKAttributes {
         
         /** Animate the entry out - The entry rolls out when a new one shows */
         case animated(animation: Animation)
-        
+        ///覆盖
         public var isOverriden: Bool {
             switch self {
             case .overridden:

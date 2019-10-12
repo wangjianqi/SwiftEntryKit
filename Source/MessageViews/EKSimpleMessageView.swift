@@ -10,6 +10,7 @@ import UIKit
 public class EKSimpleMessageView: UIView {
 
     // MARK: Props
+    ///子类去布局
     var thumbImageView: UIImageView!
     let messageContentView = EKMessageContentView()
     private let message: EKSimpleMessage
@@ -45,6 +46,7 @@ public class EKSimpleMessageView: UIView {
     
     private func setupInterfaceStyle() {
         if let image = message.image {
+            ///设置tintColor
             thumbImageView?.tintColor = image.tint?.color(
                 for: traitCollection,
                 mode: image.displayMode

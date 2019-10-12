@@ -16,6 +16,7 @@ final class AnimationSelectionTableViewCell: SelectionTableViewCell {
         case pop
         
         var isOut: Bool {
+            ///
             return Set([.exit, .pop]).contains(self)
         }
     }
@@ -56,6 +57,7 @@ final class AnimationSelectionTableViewCell: SelectionTableViewCell {
     
     override func configure(attributesWrapper: EntryAttributeWrapper) {
         super.configure(attributesWrapper: attributesWrapper)
+        ///原始值：首字母大写的
         titleValue = "\(action.rawValue.capitalized) Animation"
         descriptionValue = "Describes the \(action.rawValue) animation of the entry"
         insertSegments(by: ["Translate", "Scale", "Fade"])
